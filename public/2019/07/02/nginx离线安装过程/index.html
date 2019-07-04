@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="我和你有个对话">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        nginx离线安装过程 - 悉陌伊人
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 学习使我快乐 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>dht5867</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nginx-离线安装过程"><span class="toc-text">nginx 离线安装过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-、安装gcc库"><span class="toc-text">1)、安装gcc库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2）、安装pcre库"><span class="toc-text">2）、安装pcre库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3）、安装zlib库"><span class="toc-text">3）、安装zlib库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4）配置NGINX-环境变量"><span class="toc-text">4）配置NGINX 环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5）配置NGINX开机自启动"><span class="toc-text">5）配置NGINX开机自启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nginx控制命令"><span class="toc-text">nginx控制命令</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 学习使我快乐 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        nginx离线安装过程
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-07-02 19:02:39</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#-NGINX" title="-NGINX">-NGINX</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="nginx-离线安装过程"><a href="#nginx-离线安装过程" class="headerlink" title="nginx 离线安装过程"></a>nginx 离线安装过程</h1><p>1、安装gcc gcc++ 依赖</p>
+<p>a、首先现在了nginx的最新版本nginx-1.10.0.tar.gz，上传到服务器(/usr/local/src/nginx)目录</p>
+<p>b、解压tar -zxvf nginx-1.10.0.tar.gz</p>
+<p>c、进入解压目录执行./configure, 这里用到了gcc、pcre、zlib库，如果没有安装会出现C compiler cc is not found等错误</p>
+<p>gcc依赖库下载地址：<a href="http://download.csdn.net/detail/yidragon88xx/9903875" target="_blank" rel="noopener">http://download.csdn.net/detail/yidragon88xx/9903875</a></p>
+<h2 id="1-、安装gcc库"><a href="#1-、安装gcc库" class="headerlink" title="1)、安装gcc库"></a>1)、安装gcc库</h2><p>仓库地址 <a href="http://vault.centos.org/6.5/os/x86_64/Packages/" target="_blank" rel="noopener">http://vault.centos.org/6.5/os/x86_64/Packages/</a> 包仓库<br>rpm -ivh mpfr-2.4.1-6.el6.x86_64.rpm<br>rpm -ivh mpfr-2.4.1-6.el6.x86_64.rpm<br>rpm -ivh ppl-0.10.2-11.el6.x86_64.rpm<br>rpm -ivh cloog-ppl-0.15.7-1.2.el6.x86_64.rpm<br>rpm -ivh cpp-4.4.7-17.el6.x86_64.rpm<br>rpm -Uvh libgcc-4.4.7-17.el6.x86_64.rpm<br>rpm -Uvh libgomp-4.4.7-17.el6.x86_64.rpm<br>rpm -ivh glibc-2.12-1.192.el6.x86_64.rpm<br>rpm -ivh glibc-headers-2.12-1.192.el6.x86_64.rpm<br>rpm -ivh glibc-devel-2.12-1.192.el6.x86_64.rpm<br>rpm -ivh gcc-4.4.7-17.el6.x86_64.rpm</p>
+<h2 id="2）、安装pcre库"><a href="#2）、安装pcre库" class="headerlink" title="2）、安装pcre库"></a>2）、安装pcre库</h2><p>pcre下载地址：<a href="http://download.csdn.net/detail/yidragon88xx/9903904" target="_blank" rel="noopener">http://download.csdn.net/detail/yidragon88xx/9903904</a></p>
+<p>rpm -ivh pcre-devel-7.8-7.el6.x86_64.rpm</p>
+<h2 id="3）、安装zlib库"><a href="#3）、安装zlib库" class="headerlink" title="3）、安装zlib库"></a>3）、安装zlib库</h2><p>zlib下载地址：<a href="http://download.csdn.net/detail/yidragon88xx/9903920" target="_blank" rel="noopener">http://download.csdn.net/detail/yidragon88xx/9903920</a></p>
+<p>rpm -ivh zlib-devel-1.2.3-3.x86_64.rpm</p>
+<p>如果安装过程中还出现其他库没有安装的情况，可以从如下网址中搜索：</p>
+<p><a href="https://centos.pkgs.org" target="_blank" rel="noopener">https://centos.pkgs.org</a><br><a href="http://rpm.pbone.net/" target="_blank" rel="noopener">http://rpm.pbone.net/</a><br><a href="http://www.rpm-find.net/" target="_blank" rel="noopener">http://www.rpm-find.net/</a><br>安装如果报错<br>error while loading shared libraries: libpcre.so.1: cannot open shared object file: No such file or directory，意思是找不到libpcre.so.1这个模块，而导致启动失败。</p>
+<p>解决方法如下<br>如果是32位系统</p>
+<p>[root@lee ~]#  ln -s /usr/local/lib/libpcre.so.1 /lib</p>
+<p>如果是64位系统</p>
+<p>[root@lee ~]#  ln -s /usr/local/lib/libpcre.so.1 /lib64</p>
+<p>d、依赖库都安装完成之后然后重新执行</p>
+<p>./configure</p>
+<p>编译过程中会出现很多信息有些是not found信息，这些不用关心，只要在最后出现，表示编译成功</p>
+<p>Configuration summary</p>
+<ul>
+<li>using system PCRE library</li>
+<li>OpenSSL library is not used</li>
+<li>md5: using system crypto library</li>
+<li>sha1 library is not used</li>
+<li>using system zlib library </li>
+</ul>
+<p>e、执行make</p>
+<p>f、执行make install</p>
+<p>g、nginx就安装完成了，然后进入/usr/local/目录发现生成新文件夹nginx表示安装成了</p>
+<p>h、进入nginx根目录的sbin下执行./nginx启动nginx</p>
+<p>i、查看启动情况</p>
+<p>ps -ef|grep nginx</p>
+<h2 id="4）配置NGINX-环境变量"><a href="#4）配置NGINX-环境变量" class="headerlink" title="4）配置NGINX 环境变量"></a>4）配置NGINX 环境变量</h2><p>export HGINX_HOME=/usr/local/nginx<br>export PATH=$PATH:$HGINX_HOME/sbin</p>
+<h2 id="5）配置NGINX开机自启动"><a href="#5）配置NGINX开机自启动" class="headerlink" title="5）配置NGINX开机自启动"></a>5）配置NGINX开机自启动</h2><pre><code>1.写自启动脚本
+2.设置权限
+chmod 777 /etc/init.d/nginx
+3.设置开机默认启动
+chkconfig --add nginx //添加系统服务
+chkconfig --level 345 nginx on //设置开机启动,启动级别
+chkconfig --list nginx //查看开机启动配置信息</code></pre><h2 id="nginx控制命令"><a href="#nginx控制命令" class="headerlink" title="nginx控制命令"></a>nginx控制命令</h2><p>service nginx start   #开启<br>service nginx stop    #停止<br>service nginx restart #重启<br>service nginx reload  #重新加载</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/悉陌伊人">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/1228463344">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.dht5867.com">个人博客</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a>
+    </p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

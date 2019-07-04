@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="我和你有个对话">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        linux常用指令 - 悉陌伊人
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 学习使我快乐 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>dht5867</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Linux目录"><span class="toc-text">一、Linux目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、磁盘管理命令"><span class="toc-text">二、磁盘管理命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、文件浏览命令"><span class="toc-text">三、文件浏览命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、文件操作命令"><span class="toc-text">四、文件操作命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#管道命令-可以连接多个命令"><span class="toc-text">管道命令 | 可以连接多个命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#压缩解压-tar"><span class="toc-text">压缩解压 tar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统命令"><span class="toc-text">系统命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kill-干掉进程"><span class="toc-text">kill 干掉进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#权限授权命令"><span class="toc-text">权限授权命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装命令"><span class="toc-text">安装命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#shell脚本"><span class="toc-text">shell脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用例子"><span class="toc-text">常用例子</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 学习使我快乐 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        linux常用指令
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-07-04 14:23:45</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#--linux" title="--linux">--linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h2 id="一、Linux目录"><a href="#一、Linux目录" class="headerlink" title="一、Linux目录"></a>一、Linux目录</h2><p>/系统根目录<br>/bin 二进制文件目录<br>/etc 系统配置文件，不建议在次目录存放可执行文件，防火墙文件、网络设置文件、jdk环境，mysqlpeiz wenj<br>/usr 应用程序存放文件， jdk,mysql ,redis<br>/root 系统管理员root家目录 ，相当于Windows的桌面家目录，每个用户都有一个家目录</p>
+<h2 id="二、磁盘管理命令"><a href="#二、磁盘管理命令" class="headerlink" title="二、磁盘管理命令"></a>二、磁盘管理命令</h2><p>ls 列出目录内容<br>参数 -a 列出所有包括隐藏文件 -l 列出详情 -h友好显示<br>文件格式<br>drwxr-xr-x.  3 root root   4096 5月  22 2016 abrt<br>-rw-r–r–.  1 root root     44 1月   9 13:47 adjtime<br>-rw-r–r–.  1 root root   1512 1月  12 2010 aliases<br>10位 drwxr-xr-x<br>r 读 w 写 x 可以执行<br>d 代表目录</p>
+<ul>
+<li>代表普通文件<br>l 代表连接</li>
+</ul>
+<p>cd  change diroctory 切换目录<br> 相对路径 绝对路径<br>cd /<br>cd ~ 
+cd /root 切换到根目录的root 目录</p>
+<p>pwd 显示当前所在目录<br>mkdir （make dir） 创建目录<br>mkdir  study<br>rmdir  （remove dir） 删除空目录<br>rmdir study</p>
+<h2 id="三、文件浏览命令"><a href="#三、文件浏览命令" class="headerlink" title="三、文件浏览命令"></a>三、文件浏览命令</h2><p>打开查看 日志文件 xml文件 pro 文件</p>
+<p>cat 小文件</p>
+<p>more 大文件 ，enter下一行，空格下一页 q退出</p>
+<p>less 大文件查看分页显示<br>-m 百分比<br>-N 行号<br>less -mN 文件名</p>
+<p>tail<br>tail - 数子 文件名 快速查看文件后多少行的内容<br>tail -f ：表示持续侦测后面所接的档名，要等到按下[ctrl]-c才会结束tail的侦测</p>
+<h2 id="四、文件操作命令"><a href="#四、文件操作命令" class="headerlink" title="四、文件操作命令"></a>四、文件操作命令</h2><p>1、文件复制 copy</p>
+<p>cp 复制文件或目录<br>复制文件 cp post-install Documents<br>复制文件夹  -r 表示级联复制 cp -r study Documents/ </p>
+<p>2、文件移动 mv（move）<br> mv  文件/目录 移动的位置<br> mv -f 文件覆盖  mv -f t5 t3<br> mv 改名 mv mv dht.txt dd.txt</p>
+<p>3、文件删除 rm (rmove)<br>-f(force)<br>-r （reference）级联<br>删除文件 rm -f 文件名  rm -f dd.txt<br>删除目录 rm -rf 目录名  rm -rf study<br>注意<br>rm -rf * 删除当前目录所有内容<br>rm -rf /*  删除Linux 系统根目录下的所有内容</p>
+<p>4、查找命令 find 查找文件或目录<br>find find /root -name ‘post*’ 查找 以、a\post字符开头的文件或目录<br>结果<br>/root/Documents/post-install<br>/root/post-install.log<br>/root/post-install</p>
+<p>5、文件编辑 vim<br>vim 文件名进入一般模式 ，可以浏览 复制<br>按i 进入插入模式 ，可以编辑删除<br>按esc 退出到一般模式<br>在一般模式输入：wq退出保存，按q!强制退出不保存</p>
+<h2 id="管道命令-可以连接多个命令"><a href="#管道命令-可以连接多个命令" class="headerlink" title="管道命令 | 可以连接多个命令"></a>管道命令 | 可以连接多个命令</h2><p>grep 正则表达式 ，字符串搜索</p>
+<p>grep 需要搜索的字符串 搜索的文件 复合返回当前行</p>
+<p>管道和grep集合<br>ll| grep dd<br>-i（ignore）忽略大小写<br>grep - i dd </p>
+<h2 id="压缩解压-tar"><a href="#压缩解压-tar" class="headerlink" title="压缩解压 tar"></a>压缩解压 tar</h2><p>格式 *.tar 多个文件打包为一个文件，大小不会进行压缩<br>    *.tar.gz 打包并压缩（gzip） </p>
+<p>1、压缩<br>tar -zcvf<br>z 使用gzip压缩<br>c  建立一个压缩文件<br>x 解压<br>v 压缩的过程显示文件<br>f 使用文档名</p>
+<p>2、解压<br>tar zxvf redis-4.0.2.tar  解压到当前目录<br>tar -zxvf 压缩包 —C  解压到指定目录</p>
+<h2 id="系统命令"><a href="#系统命令" class="headerlink" title="系统命令"></a>系统命令</h2><p>ps (process status)查看进程<br>ps -ef 查看系统进程<br>uid 那个用户打开属于那个用户<br>pid 进程ID标识进程<br>cmd 表明进程对应的程序，程序的位置<br>UID        PID  PPID  C STIME TTY          TIME CMD<br>root         1     0  0 12:37 ?        00:00:01 /sbin/init<br>root         2     0  0 12:37 ?        00:00:00 [kthreadd]<br>root         3     2  0 12:37 ?        00:00:00 [migration/0]<br>root         4     2  0 12:37 ?        00:00:00 [ksoftirqd/0]<br>root       </p>
+<p>ps -ef |grep -i vim</p>
+<p>ps au| grep 端口、进程名</p>
+<h2 id="kill-干掉进程"><a href="#kill-干掉进程" class="headerlink" title="kill 干掉进程"></a>kill 干掉进程</h2><p>kill - 9 pid </p>
+<p>ifconfig 网络配置</p>
+<p>ping 网络连通命令测试</p>
+<p>nestat -nap </p>
+<p>halt 直接关机<br>reboot 重启<br>setup 网络配置</p>
+<h2 id="权限授权命令"><a href="#权限授权命令" class="headerlink" title="权限授权命令"></a>权限授权命令</h2><p>chmod(change mode)变更文件或目录权限<br>drwxr-xr-x. 2 root root  4096 1月  10 12:33 Desktop<br>drwxr-xr-x. 2 root root  4096 1月  10 13:29 Destop<br>drwxr-xr-x. 2 root root  4096 1月  10 13<br>第一位：文件类型 d目录 -文件 l 链接<br>2-4 位： 所属用户权限 u表示<br>5-7位：所属组权限 g表示<br>8-10 其他用户权限 o表示<br>2-10 所有权限 a表示<br>r -read 读<br>w write 写<br>x excute 执行</p>
+<ul>
+<li>没有权限</li>
+</ul>
+<p>chmod 权限设置 需要更改权限的文件名<br>chmod u=rw- study<br>chmod g=rwx study<br> chmod a=rwx study<br>改变study文件夹和文件夹下的权限<br>chmod -R u=rw- study</p>
+<p>r=4,w=2,x=1<br>rwxrwxrwx  777<br>chmod 777 文件路径和名</p>
+<h2 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h2><p>rpm 想当于Windows的安装，添加卸载<br>rpm -ivh 程序名安装<br>rpm -qa 查看所有程序<br>rpm -e –nodeps 程序名 程序卸载</p>
+<p>yum：相当于可以联网的rpm命令,先下载程序的安装包，在执行rpm安装命令<br>-y 下载依赖安装<br>yum -y install gcc gcc-c++ autoconf automake</p>
+<p>wget  联网下载安装<br>-p 级联创建<br>wget -P /usr/local <a href="http://nginx.org/download/nginx-1.12.2.tar.gz" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.12.2.tar.gz</a></p>
+<p>防火墙</p>
+<h2 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h2><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#！告诉系统其后路径所指定的程序，就是解释次脚本文件的shell 程序</span><br><span class="line"><span class="meta">#! /bash/shell</span></span><br><span class="line">echo <span class="string">"hello world"</span></span><br></pre></td></tr></table></figure>
+
+<p>赋予脚本执行权限<br>chmod +x ./test.sh  #使脚本具有执行权限<br>./test.sh  #执行脚本</p>
+<p>直接写test.sh执行过程linux系统会去path里寻找有没有test.sh的，而path路径里只有<br>/bin,/sbin,/usr/bin,/usr/sbin,你的当前目录并不在path里，所以写成test.sh是不会找到命令的，需要./test.sh<br>告诉系统在当前目录找</p>
+<p>定义shell变量，<br>your_name=”runoob.com”，但是变量名和等号之间不能有空格，不能使用bash关键字</p>
+<p>意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则：<br>命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。<br>中间不能有空格，可以使用下划线（_）。<br>不能使用标点符号。<br>不能使用bash里的关键字（可用help命令查看保留关键字）。</p>
+<h2 id="常用例子"><a href="#常用例子" class="headerlink" title="常用例子"></a>常用例子</h2><p>解压文件<br>tar zxvf redis-4.0.2.tar</p>
+<p>移动文件<br>mv redis-4.0.2  /usr/local/</p>
+<p>创建文件<br>mkdir  /usr/local/redis-4.0.2/bin<br>复制文件<br>cp /usr/local/redis-4.0.2/redis.conf /usr/local/redis-4.0.2/etc</p>
+<p>查看日志文件<br>tail -f 文件名</p>
+<p>natapp</p>
+<p>/Users/ximoyiren/soft/natapp</p>
+<p>查看端口占用</p>
+<p>netstat -tunlp|grep 13200</p>
+<p>lsof -i:13200</p>
+<p>查看java进程<br>ps -ef | grep java</p>
+<p>ps -ef | grep wecourt-worklog.jar</p>
+<p>查看Tomcat进程</p>
+<p>ps -ef | grep tomcat6_js13200</p>
+<p>找到pid 在kill</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/悉陌伊人">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/1228463344">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.dht5867.com">个人博客</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a>
+    </p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

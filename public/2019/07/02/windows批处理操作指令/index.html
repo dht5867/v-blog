@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="我和你有个对话">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        windows批处理操作指令 - 悉陌伊人
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 学习使我快乐 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>dht5867</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows环境下运行bat指令"><span class="toc-text">Windows环境下运行bat指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#备注"><span class="toc-text">备注</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 学习使我快乐 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        windows批处理操作指令
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-07-02 18:38:12</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#-Windows批处理" title="-Windows批处理">-Windows批处理</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h2 id="Windows环境下运行bat指令"><a href="#Windows环境下运行bat指令" class="headerlink" title="Windows环境下运行bat指令"></a>Windows环境下运行bat指令</h2><p>-Windows下 初始化MySQL SQL 文件</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off　</span><br><span class="line"><span class="built_in">start</span>  <span class="built_in">cmd</span> /k   "<span class="built_in">echo</span> initmysql  &amp;&amp;  <span class="built_in">title</span> init-mysql  &amp;&amp; <span class="built_in">cd</span>/d  D:\soft\mysql-<span class="number">5</span>.<span class="number">7</span>.<span class="number">26</span>-winx64\bin &amp;&amp; mysql -h localhost  -uroot -pnrqzdhlscx2 -Dtest &lt; D:\soft\initmysql.sql"</span><br></pre></td></tr></table></figure>
+
+<p>-windows 下，打开多个窗口运行springboot jar包</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off　</span><br><span class="line"><span class="built_in">start</span>  <span class="built_in">cmd</span> /c   "<span class="built_in">echo</span> Starting graph-eureka-server &amp;&amp;  <span class="built_in">title</span> graph-eureka-server &amp;&amp;  java -jar   D:\soft\java-service\graph-eureka-server.jar "</span><br><span class="line"></span><br><span class="line"><span class="built_in">start</span>  <span class="built_in">cmd</span> /c  "<span class="built_in">echo</span> Starting link-excel &amp;&amp;  <span class="built_in">title</span> link-excel &amp;&amp;  java -Dfile.encoding=UTF-<span class="number">8</span>  -jar  D:\soft\java-service\link-excel.jar" </span><br><span class="line"></span><br><span class="line"><span class="built_in">start</span>  <span class="built_in">cmd</span> /c  "<span class="built_in">echo</span> Starting link-web  &amp;&amp;  <span class="built_in">title</span> link-web &amp;&amp;  java -jar   D:\soft\java-service\link-web.jar" </span><br><span class="line"></span><br><span class="line"><span class="built_in">start</span>  <span class="built_in">cmd</span> /c  "<span class="built_in">echo</span> Starting link-graph1  &amp;&amp;  <span class="built_in">title</span> link-graph1 &amp;&amp;  java -jar D:\soft\java-service\link-graph1.jar"</span><br></pre></td></tr></table></figure>
+
+<p>-Windows 下关闭多个Java 虚拟机</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill <span class="string">/f</span> <span class="string">/t</span> <span class="string">/fi</span>  <span class="string">"imagename eq java.exe"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><p> 1、echo 命令<br> 打开回显或关闭请求回显功能，或显示消息。如果没有任何参数，echo 命令将显示当前回显设置。<br>语法<br>echo [{ on|off }] [message]</p>
+<p>2、rem 命令，注释，代表此行不会执行</p>
+<p>rem 这是一个注释</p>
+<p>3、pause 命令<br>    这是一个暂停指令，按任意键继续</p>
+<p>4、start 命令</p>
+<p>Start语法<br>start [“title”] [/dPath] [/min] [/max] [{/separate |/shared}] [{/low | /normal | /high | /realtime | /abovenormal | belownormal}][/wait] [/B] [FileName] [parameters]</p>
+<p>启动单独的“命令提示符”窗口来运行指定程序或命令。如果在没有参数的情况下使用，start 将打开第二个命令提示符窗口。</p>
+<p>start cmd/c 打开新窗口执行指令后关闭窗口</p>
+<p>start cmd/k 打开新窗口执行指令后,保持新窗口</p>
+<p>title 新窗口的标题名称</p>
+<p>5、taskkill 指令，使用该工具按照进程 ID (PID) 或映像名称终止任务。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TASKKILL [/S<span class="built_in"> system </span>[/U username [/P [password]]]]   </span><br><span class="line">         &#123; [/FI filter] [/PID processid | /IM imagename] &#125; [/T] [/F]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1. </span>/S    system    指定要连接的远程系统。  </span><br><span class="line"></span><br><span class="line"><span class="bullet">2. </span>/U    [domain\]user    指定应该在哪个用户上下文执行这个命令。</span><br><span class="line"></span><br><span class="line"><span class="bullet">3. </span>/P    [password]       为提供的用户上下文指定密码。如果忽略，提示输入。</span><br><span class="line"></span><br><span class="line"><span class="bullet">4. </span>/FI   filter           应用筛选器以选择一组任务。允许使用 "<span class="emphasis">*"。例如，映像名称 eq acme*</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">5. </span>/PID  processid        指定要终止的进程的 PID。使用 TaskList 取得 PID。</span><br><span class="line"></span><br><span class="line"><span class="bullet">6. </span>/IM   imagename        指定要终止的进程的映像名称。通配符 '*'可用来 指定所有任务或映像名称。</span><br><span class="line"></span><br><span class="line"><span class="bullet">7. </span>/T                     终止指定的进程和由它启用的子进程。</span><br><span class="line"></span><br><span class="line"><span class="bullet">8. </span>/F                     指定强制终止进程。</span><br><span class="line"></span><br><span class="line"><span class="bullet">9. </span>/?                     显示帮助消息</span><br></pre></td></tr></table></figure>
+
+<p>例子，杀死对应进程：<br>taskkill /pid pid  </p>
+<p>taskkill /im xxx.exe  </p>
+<p>taskkill /fi “imagename eq xxx.exe”  </p>
+<p>taskkill /fi “pid eq pid”  </p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/悉陌伊人">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/1228463344">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.dht5867.com">个人博客</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a>
+    </p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

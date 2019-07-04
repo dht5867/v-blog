@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="我和你有个对话">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        springboot项目混淆方案 - 悉陌伊人
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 学习使我快乐 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.png" />
+        </div>
+        <div class="name">
+            <i>dht5867</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#springboot-项目混淆"><span class="toc-text">springboot 项目混淆</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引入proguard-maven-plugin"><span class="toc-text">引入proguard-maven-plugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bean命名重复异常"><span class="toc-text">bean命名重复异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行maven命令-打成jar包"><span class="toc-text">执行maven命令,打成jar包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运行jar包"><span class="toc-text">运行jar包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#可能出现的问题"><span class="toc-text">可能出现的问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反编译"><span class="toc-text">反编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-text">注意</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 学习使我快乐 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        springboot项目混淆方案
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-07-02 16:28:54</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#springboot混淆" title="springboot混淆">springboot混淆</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="springboot-项目混淆"><a href="#springboot-项目混淆" class="headerlink" title="springboot 项目混淆"></a>springboot 项目混淆</h1><p>proguard简单来说是为了防止反编译，更准确的说，进行业务代码的混淆，是使得代码易读性变差。</p>
+<h2 id="引入proguard-maven-plugin"><a href="#引入proguard-maven-plugin" class="headerlink" title="引入proguard-maven-plugin"></a>引入proguard-maven-plugin</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.wvengen<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>proguard-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.14<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>proguard<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">proguardVersion</span>&gt;</span>6.0.3<span class="tag">&lt;/<span class="name">proguardVersion</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">injar</span>&gt;</span>$&#123;project.build.finalName&#125;.jar<span class="tag">&lt;/<span class="name">injar</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!-- &lt;injar&gt;classes&lt;/injar&gt; --&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">outjar</span>&gt;</span>$&#123;project.build.finalName&#125;.jar<span class="tag">&lt;/<span class="name">outjar</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">                    &lt;outjar&gt;$&#123;project.build.finalName&#125;.jar&lt;/outjar&gt;</span></span><br><span class="line"><span class="comment">          --&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">obfuscate</span>&gt;</span>true<span class="tag">&lt;/<span class="name">obfuscate</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">options</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--# JDK目标版本1.8--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-target 1.8<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 不做收缩（删除注释、未被引用代码）--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-dontshrink<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 不做优化（变更代码实现逻辑）--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-dontoptimize<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--  ##对于类成员的命名的混淆采取唯一策略--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-useuniqueclassmembernames<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--## 混淆类名之后，对使用Class.forName('className')之类的地方进行相应替代--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-adaptclassstrings<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--混淆时不生成大小写混合的类名，默认是可以大小写混合--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-dontusemixedcaseclassnames<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--忽略警告--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-ignorewarnings<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- This option will replace all strings in reflections method invocations with new class names.</span></span><br><span class="line"><span class="comment">                 For example, invokes Class.forName('className')--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- &lt;option&gt;-adaptclassstrings&lt;/option&gt; --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- This option will save all original annotations and etc. Otherwise all we be removed from files.--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 不混淆所有特殊的类--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-keepattributes Exceptions,InnerClasses,Signature,Deprecated,</span><br><span class="line">              SourceFile,LineNumberTable,*Annotation*,EnclosingMethod</span><br><span class="line">            <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- This option will save all original names in interfaces (without obfuscate).--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">                         &lt;option&gt;-keepnames interface **&lt;/option&gt;</span></span><br><span class="line"><span class="comment">            --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- This option will save all original methods parameters in files defined in -keep sections,</span></span><br><span class="line"><span class="comment">                 otherwise all parameter names will be obfuscate.--&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!--保留参数名字--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-keepparameternames<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--保留主程序入口--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">                        &lt;option&gt;-keep @org.springframework.boot.autoconfigure.SpringBootApplication class * &#123;*;&#125;&lt;/option&gt;</span></span><br><span class="line"><span class="comment">            --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- &lt;option&gt;-libraryjars **&lt;/option&gt; --&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- This option will save all original class files (without obfuscate) but obfuscate all in domain package.--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;option&gt;-keep class !com.slm.proguard.example.spring.boot.domain.** &#123; *; &#125;&lt;/option&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">            &lt;option&gt;-keep class !com.bmsoft.graph.** &#123; *; &#125;&lt;/option&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-keep class com.bmsoft.graph.config.** &#123; *; &#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-keep class com.bmsoft.graph.LinkGraphApplication &#123; *; &#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-keep class com.bmsoft.graph.mapper.** &#123; *; &#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">            &lt;option&gt;-keep class com.bmsoft.graph.auth.filter.** &#123; *; &#125;&lt;/option&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-keep class com.bmsoft.graph.aspect.** &#123; *; &#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-keep class com.bmsoft.graph.domain.** &#123; *; &#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-keep class com.bmsoft.graph.controller.** &#123; *; &#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">            &lt;option&gt;-keep interface * extends * &#123; *; &#125;&lt;/option&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">             <span class="comment">&lt;!--##保留枚举成员及方法--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span> -keepclassmembers enum * &#123; *; &#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">option</span>&gt;</span>-keepclassmembers class * &#123;</span><br><span class="line">              <span class="comment">&lt;!-- @org.springframework.beans.factory.annotation.Autowired *; --&gt;</span></span><br><span class="line">              @org.springframework.beans.factory.annotation.Autowired *;</span><br><span class="line">              @org.springframework.beans.factory.annotation.Value *;</span><br><span class="line">              &#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">options</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">libs</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- Include main JAVA library required.--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">lib</span>&gt;</span>$&#123;java.home&#125;/lib/rt.jar<span class="tag">&lt;/<span class="name">lib</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">lib</span>&gt;</span>$&#123;java.home&#125;/lib/jce.jar<span class="tag">&lt;/<span class="name">lib</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- &lt;lib&gt;$&#123;java.home&#125;/lib/spring-boot-starter-web-1.4.1.RELEASE.jar&lt;/lib&gt; --&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">libs</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.sf.proguard<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>proguard-base<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>6.0.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里引用了com.github.wvengen的proguard-maven-plugin插件，使用的proguard-base版本是6.0.3<br>这里使用java8，因为libs那里照常配置rt.jar，jce.jar，如果是java9的话，则需要换成相应的模块。</p>
+<p>另外指定proguard的阶段为package，springboot打包在repackage阶段</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- &lt;phase&gt;none&lt;/phase&gt; --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">goal</span>&gt;</span>repackage<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>com.bmsoft.graph.LinkGraphApplication<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="bean命名重复异常"><a href="#bean命名重复异常" class="headerlink" title="bean命名重复异常"></a>bean命名重复异常</h2><p>由于proguard混淆貌似不能指定混淆的类名在basePackages下面类名混淆后唯一，不同包名经常有a.class，b.class,c.class之类重复的类名，因此spring容器初始化bean的时候会报错。</p>
+<p>异常信息如下</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.beans.factory.<span class="type">BeanDefinitionStoreException</span>: <span class="type">Failed</span> to parse configuration <span class="class"><span class="keyword">class</span> [com.example.demo.<span class="type">MvcDemoApplication</span>]</span>; nested exception is org.springframework.context.annotation.<span class="type">ConflictingBeanDefinitionException</span>: <span class="type">Annotation</span>-specified bean name 'a' <span class="keyword">for</span> bean <span class="class"><span class="keyword">class</span> [com.example.demo.c.a] <span class="title">conflicts</span> <span class="keyword">with</span> <span class="title">existing</span>, <span class="title">non-compatible</span> <span class="title">bean</span> <span class="title">definition</span> <span class="title">of</span> <span class="title">same</span> <span class="title">name</span> <span class="title">and</span> <span class="title">class</span> [com.example.demo.b.a]</span></span><br><span class="line"><span class="class">    <span class="title">at</span> <span class="title">org</span>.<span class="title">springframework</span>.<span class="title">context</span>.<span class="title">annotation</span>.<span class="title">ConfigurationClassParser</span>.<span class="title">parse</span>(<span class="params"><span class="type">ConfigurationClassParser</span>.java:181</span>) <span class="title">~</span>[spring-context-4.3.10.<span class="type">RELEASE</span>.jar!/:4.3.10.<span class="type">RELEASE</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>需要在更改bean 命名</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LinkGraphApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomGenerator</span> <span class="keyword"><span class="keyword">implements</span> <span class="type">BeanNameGenerator</span></span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">String</span> generateBeanName(BeanDefinition definition, BeanDefinitionRegistry registry) &#123;</span><br><span class="line">      <span class="keyword">return</span> definition.getBeanClassName();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> void main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="type">SpringApplicationBuilder</span>(LinkGraphApplication.class)</span><br><span class="line">        .beanNameGenerator(<span class="keyword">new</span> <span class="type">CustomGenerator</span>())</span><br><span class="line">        .run(args);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="执行maven命令-打成jar包"><a href="#执行maven命令-打成jar包" class="headerlink" title="执行maven命令,打成jar包"></a>执行maven命令,打成jar包</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clean <span class="keyword">package</span> <span class="title">-DskipTests</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="运行jar包"><a href="#运行jar包" class="headerlink" title="运行jar包"></a>运行jar包</h2><p>nohup java -jar  jar包名.jar -&amp;</p>
+<h3 id="可能出现的问题"><a href="#可能出现的问题" class="headerlink" title="可能出现的问题"></a>可能出现的问题</h3><p>项目中引入了swagger 插件，需要在打包的时候，不进行bean的初始化配置</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@ConditionalOnProperty(prefix = <span class="string">"swagger"</span>, <span class="keyword">value</span> = &#123;<span class="string">"enable"</span>&#125;, havingValue = <span class="string">"true"</span>)</span><br><span class="line">@EnableSwagger2</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">SwaggerConfig</span> &#123;</span><br><span class="line">   @Bean</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Docket <span class="title">createRestApi</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    ParameterBuilder tokenParam = <span class="keyword">new</span> ParameterBuilder();</span><br><span class="line">    List&lt;Parameter&gt; <span class="keyword">params</span> = <span class="keyword">new</span> ArrayList&lt;Parameter&gt;();</span><br><span class="line">    tokenParam.name(<span class="string">"Authorization"</span>).description(<span class="string">"令牌标识"</span>).modelRef(<span class="keyword">new</span> ModelRef(<span class="string">"string"</span>))</span><br><span class="line">        .parameterType(<span class="string">"header"</span>).required(<span class="literal">false</span>).defaultValue(TOKEN).build();</span><br><span class="line">    <span class="keyword">params</span>.<span class="keyword">add</span>(tokenParam.build());</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">        .<span class="keyword">select</span>()</span><br><span class="line">        .apis(RequestHandlerSelectors.basePackage(<span class="string">"com.bmsoft.graph.controller"</span>))</span><br><span class="line">        .paths(PathSelectors.any())</span><br><span class="line">        .build()</span><br><span class="line">        .globalOperationParameters(<span class="keyword">params</span>)</span><br><span class="line">        .apiInfo(apiInfo())</span><br><span class="line">        .pathMapping(<span class="string">""</span>);</span><br><span class="line">        .new ResponseMessageBuilder().code(<span class="number">403</span>).message(<span class="string">"Forbidden!!"</span>).build()));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">        .title(<span class="string">"图服务的 API"</span>)</span><br><span class="line">        .description(<span class="string">"图服务"</span>)</span><br><span class="line">        .contact(<span class="string">"图服务"</span>)</span><br><span class="line">        .version(<span class="string">"1.0.0"</span>)</span><br><span class="line">        .build();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="反编译"><a href="#反编译" class="headerlink" title="反编译"></a>反编译</h2><p>Windows下，直接解压jar 包，可以查看jar包内的文件形式，Mac 可以使用 unarchiver 进行解压jar包，要查看字节码文件的话，可以直接把class文件放到idea进行查看</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>-keep class 类/包.**  表示保留类名</p>
+<p>-keepclassmembers class 类/包.**{ *;} 表示保留类下边的所有变量，均不混淆</p>
+<p>参考链接<br><a href="https://blog.csdn.net/songluyi/article/details/79554928" target="_blank" rel="noopener">https://blog.csdn.net/songluyi/article/details/79554928</a></p>
+<p><a href="https://www.jianshu.com/p/8f6c72def69d" target="_blank" rel="noopener">https://www.jianshu.com/p/8f6c72def69d</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/悉陌伊人">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/1228463344">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/dht5867">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.dht5867.com">个人博客</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a>
+    </p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
